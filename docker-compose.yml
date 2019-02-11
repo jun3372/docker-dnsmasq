@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  dns:
+    container_name: 'Jun_DNS'
+    image: 'jpillora/dnsmasq'
+    # build:
+    #   context: './'
+    volumes:
+      - "./dnsmasq.d:/etc/dnsmasq.d"
+      - "./dnsmasq.conf:/etc/dnsmasq.conf"
+
+    environment:
+      - "HTTP_USER=${HTTP_USER}"
+      - "HTTP_PASS=${HTTP_PASS}"
+    ports:
+      - "53:53/udp"
+      - "${HTTP_PORT}:8080"
+    privileged: true
+    restart: always

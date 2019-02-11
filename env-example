@@ -1,0 +1,9 @@
+
+# http 访问端口
+HTTP_PORT=5380
+
+# http 访问账号
+HTTP_USER=admin
+
+# http 访问密码
+HTTP_PASS=admin
